@@ -1,8 +1,8 @@
 # 🛒 Priorización de hipótesis y análisis de Test A/B en tienda online
 Este proyecto tiene como objetivo optimizar los ingresos de una tienda online mediante dos enfoques:  
 
-1. Priorización de hipótesis utilizando los frameworks ICE y RICE.  
-2. Análisis de un test A/B para evaluar el impacto de cambios en la experiencia de usuario sobre métricas clave como ingresos, conversión y tamaño promedio de pedido.  
+- Priorización de hipótesis utilizando los frameworks ICE y RICE.  
+- Análisis de un test A/B para evaluar el impacto de cambios en la experiencia de usuario sobre métricas clave como ingresos, conversión y tamaño promedio de pedido.  
 
 ## 🎯 Objetivo: 
 Analizar el comportamiento de usuarios, dispositivos y fuentes de marketing a lo largo del tiempo para identificar patrones de conversión, rentabilidad y retorno de inversión, con el fin de optimizar estrategias y maximizar ganancias de manera sostenible
@@ -11,53 +11,45 @@ Analizar el comportamiento de usuarios, dispositivos y fuentes de marketing a lo
 Limpieza y análisis de datos, correlación entre ventas y reseñas, segmentación por dispositivos y fuentes de marketing, y pruebas de hipótesis para optimizar estrategias comerciales y de inversión.
 
 ## 📂 Datos
+Archivos (No incluidos por temas de licencia): 
+- `visits_log_us.csv`
+  - `Uid`: identificador único del usuario.
+  - `Device`: dispositivo del usuario.
+  - `Start Ts`: fecha y hora de inicio de la sesión.
+  - `End Ts`: fecha y hora de término de la sesión.
+  - `Source Id`: identificador de la fuente de anuncios de la que proviene el usuario.
 
-Archivos: 
-- hypotheses_us.csv  
-  - `Hypotheses` → descripción breve de la hipótesis.  
-  - `Reach` → alcance de usuarios (escala 1–10).  
-  - `Impact` → impacto esperado en usuarios (escala 1–10).  
-  - `Confidence` → nivel de confianza en la hipótesis (escala 1–10).  
-  - `Effort` → recursos necesarios para probar la hipótesis (escala 1–10).  
+- `orders_log_us.csv`
+  - `Uid`: identificador único del usuario que realiza un pedido.
+  - `Buy Ts`: fecha y hora del pedido. Revenue: el ingreso de Showz por el pedido.
 
-- orders_us.csv  
-  - `transactionId` → identificador del pedido.  
-  - `visitorId` → identificador del usuario.  
-  - `date` → fecha del pedido.  
-  - `revenue` → ingresos del pedido.  
-  - `group` → grupo del test A/B (A o B).  
+- `costs_us.csv`
+  - `source_id`: identificador de la fuente de anuncios.
+  - `dt`: fecha.
+  - `costs`: gastos en esta fuente de anuncios en este día.
 
-- visits_us.csv  
-  - `date` → fecha.  
-  - `group` → grupo del test A/B.  
-  - `visits` → número de visitas por grupo y fecha.   
-
----
+**Nota**: Todas las fechas de esta tabla están en formato AAAA-MM-DD.   
 
 ## 🛠️ Metodología
+- Preparación:
+  - Unificar el formarto de las columnas a letras minúsculas.
+  - Conversión a tipos adecuados para fechas y datos numéricos.
+  - Manipulación y tratamiento justificado de valores ausentes.
 
-1. Priorización de hipótesis
-  - Aplicar el framework ICE → ordenar hipótesis por prioridad.  
-  - Aplicar el framework RICE → ordenar hipótesis por prioridad.  
-  - Comparar resultados entre ICE y RICE → explicar diferencias y cambios en la priorización.  
+- Análisis y Calculo de Métricas: 
 
-2. Análisis del test A/B
-1. Gráfico de ingresos acumulados por grupo.  
-2. Gráfico del tamaño promedio de pedido acumulado por grupo.  
-3. Diferencia relativa en el tamaño promedio de pedido (B vs. A).  
-4. Tasas de conversión diarias por grupo.  
-5. Gráfico de dispersión del número de pedidos por usuario.  
-6. Percentiles 95 y 99 de pedidos por usuario → detección de anomalías.  
-7. Gráfico de dispersión de precios de pedidos.  
-8. Percentiles 95 y 99 de precios de pedidos → detección de anomalías.  
-9. Prueba de significancia estadística en la conversión (datos brutos).  
-10. Prueba de significancia estadística en el tamaño promedio de pedido (datos brutos).  
-11. Prueba de significancia estadística en la conversión (datos filtrados).  
-12. Prueba de significancia estadística en el tamaño promedio de pedido (datos filtrados).  
-13. Decisión final:  
-   - Parar la prueba y declarar un grupo líder.  
-   - Parar la prueba y concluir que no hay diferencia.  
-   - Continuar la prueba.  
+  - Visitas:
+    - Calculo de conversión de ususarios.
+    - Cálculo de sesiones por día.
+
+  - Ventas:
+    - Tiempo de conversión de usuarios.
+    - Tamaño promedio de compra.
+
+  - Marketing:
+    - Gastos por fuente de publicidad.
+    - Cálculo del ROMI, CAC y LTV.
+
 
 ## 🛠️ Tecnologías
 - Lenguajes: Python
@@ -67,9 +59,11 @@ Archivos:
 
 
 ## 📈 Resultados y conclusiones
-- Priorización clara de hipótesis para maximizar impacto con menor esfuerzo.  
-- Evaluación rigurosa del test A/B con métricas clave de negocio.  
-- Conclusiones basadas en evidencia estadística para apoyar decisiones estratégicas.
+- Desktop es el dispositivo dominante en visitas, ingresos y retorno de inversión, aunque con tiempos de conversión más largos.
+- Móvil presenta menor popularidad, pero evidencia un potencial no explotado gracias a conversiones más rápidas y ganancias iniciales más altas.
+- El repunte de métricas inicia en agosto y se extiende por 9–10 meses, lo que sugiere una ventana estratégica para maximizar resultados.
+- El análisis de ROMI por fuente de marketing indica que la mayor parte del presupuesto debe concentrarse en las tres fuentes más rentables (1, 2 y 5), mientras que las restantes requieren reevaluación o redistribución de inversión.
+
 
 ## 📋 Uso
 - Abrir el jupyter notebook y seguir el flujo del proyecto tal y como está ordenado, yendo desde el apartado de **Descripción** hasta el apartado de **Conclusiones**.
