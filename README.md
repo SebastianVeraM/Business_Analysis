@@ -1,8 +1,6 @@
-# 🛒 Priorización de hipótesis y análisis de Test A/B en tienda online
-Este proyecto tiene como objetivo optimizar los ingresos de una tienda online mediante dos enfoques:  
+# 🛒 Análisis de Negocios para tienda Online
 
-- Priorización de hipótesis utilizando los frameworks ICE y RICE.  
-- Análisis de un test A/B para evaluar el impacto de cambios en la experiencia de usuario sobre métricas clave como ingresos, conversión y tamaño promedio de pedido.  
+Optimizé el gasto de marketing en Showz mediante el análisis de registros del servidor, pedidos y estadísticas de inversión para identificar el comportamiento de los clientes, el momento de compra y el retorno de ingresos frente al costo de adquisición.
 
 ## 🎯 Objetivo: 
 Analizar el comportamiento de usuarios, dispositivos y fuentes de marketing a lo largo del tiempo para identificar patrones de conversión, rentabilidad y retorno de inversión, con el fin de optimizar estrategias y maximizar ganancias de manera sostenible
